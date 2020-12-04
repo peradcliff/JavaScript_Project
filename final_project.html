@@ -1,0 +1,190 @@
+<!--
+    Filename:         final.html
+    Supporting Javascript file: projectJS.js
+    Supporting CSS file: final_css.css and resume_style.css
+
+    Created by: Parker Radcliff
+    Date Created: 11/22/2020
+
+    Project Description:
+
+    It is time to put your knowledge of JavaScript to work. You’re going to build something useful that you 
+    may even use beyond the scope of this course. Your WEB 115 JavaScript Project requires you to create a personal 
+    resume building tool.
+    Form elements will be used to accept user input which will be assigned to variables. These variable values will 
+    make up the content of a new web page that will be generated when a form button named Create Resume is clicked. 
+    This is called building a web page "on-the-fly".
+
+    Tasks -- These were removed as the process continued and replaced with brief 1 sentence description. 
+    1. Do some research into resumes.
+    2. Create a document named finalProject.html. The title should read WEB-115 Final Project.
+    3. Create a banner for your HTML form that includes your name, course and section number. 
+    4. Create an external JavaScript document (with the .js file extension) named projectJS.js. 
+    5. Code the script element after the opening BODY tag that will link to external document: projectJS.js.
+    6. Test, then remove the alert() method. All of your JavaScript must appear in your external projectJS.js file.
+    7. Create the appropriate labels and text boxes that the user will use to populate their resume. Include a minimum of 8 entry areas.
+    8. Create the appropriate labels and text boxes so that the user can enter their skill set. Include a minimum of 3 entry areas for this category. 
+    9. Create the appropriate labels and text boxes so that the user can include technical skills such as JavaScript and PHP. Include a minimum of 2 entry areas for this category. 
+    10. Use the form textarea element to create a text entry area with the appropriate label so that the user knows to enter their Educational background.
+    11. Create a text box with the appropriate label so that the user knows to enter the entry and exit dates of their most recent employment experience. 
+    12. Use the form textarea tag to create a text entry area with the appropriate label so that the user knows to enter the details of their most recent employment experience.
+    13. Repeat steps 10 and 11 to allow for 2 more prior employment experience data entry areas. 
+    14. Use the form textarea tag to create a text entry area with the appropriate label so that the user knows to enter the details of their business references.
+    15. Create a form button named Create Resume. When clicked this button should call a function that generates a new web page displaying a resume based on unput.
+-->
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="final_css.css">
+    <!-- I normally would have my script resource here, but I found that it wouldn't work properly if it was up here, it's down at the bottom -->
+    <title>WEB-115 Final Project</title>
+</head>
+<body>
+
+    <!-- Header == Banner in this case -->
+    <header class="head">
+        <h1>Parker Radcliff</h1>
+        <h3>WEB-115 Section 0003</h3>
+        <h3>Build Your Resume</h3>
+    </header>
+
+    <form id="form">
+        <!-- This form consists of information regarding the user, their background and more. Certain information is included like social media, that way the
+        person reviewing the actual resume can see that -->
+        
+        <!-- Personal information including like, social media and normal methods of getting in touch. -->
+        <h2 class="personal_info">Personal Information</h2>
+        <label for="name">Enter Your Full Name:</label><br>
+        <input type="text" class="entry" name="name" size="50"><br>
+
+        <label for="state">Enter Your State:</label><br>
+        <input type="text" class="entry" name="state" size="50" required=""><br>
+        
+        <label for="city">Enter Your City:</label><br>
+        <input type="text" class="entry" name="city" size="50" required=""><br>
+
+        <label for="phone">Enter Phone Number:</label><br>
+        <input type="text" class="entry" name="phone" size="50" required=""><br>
+
+        <label for="email">Enter Your Email Address:</label><br>
+        <input type="text" class="entry" name="email" size="50" required=""><br>
+        
+        <label for="instagram">Enter Your Instagram:</label><br>
+        <input type="text" class="entry" name="instagram" size="50" required=""><br>
+
+        <label for="twitter">Enter Your Twitter:</label><br>
+        <input type="text" class="entry" name="twitter" size="50" required=""><br>
+
+        <label for="linked">Enter Your LinkedIn:</label><br>
+        <input type="text" class="entry" name="linked" size="50" required=""><br>
+        <hr>
+
+
+        <!-- Education information, such as highschool and college graduation years -->
+        <h2>Education</h2>
+        <label for="highschool">Enter High School Attended:</label><br>
+        <input type="text" class="entry" name="highschool" size="50" required=""><br>
+
+        <label for="year1">Enter Graduation Year:</label><br>
+        <input type="text" class="entry" name="year1" size="50" required=""><br>
+        
+        
+        <label for="college">Enter College Attended:</label><br>
+        <input type="text" class="entry" name="college" size="50" required=""><br>
+
+        <label for="year2">Enter Graduation Year:</label><br>
+        <input type="text" class="entry" name="year2" size="50" required=""><br>
+
+        <label for="degree">Enter Degree Type:</label><br>
+        <input type="text" class="entry" name="degree" size="50" required="">
+        <hr>
+
+
+        <!-- Technical skills, these involve coding languages-->
+        <h2>Technical Skills</h2>
+        <p>Enter Your Technical Skills:</p>
+        <p>Example: Python, Java</p>
+        <label for="tech_skill1">Technical Skill 1:</label><br>
+        <input type="text" class="entry" name="tech_skill1" size="50"><br>
+        <label for="tech_skill2">Technical Skill 2:</label><br>
+        <input type="text" class="entry" name="tech_skill2" size="50"><br>
+        <hr>
+
+        <!-- Skills such as communication and leadership -->
+        <h2>Skills</h2>
+        <p>Enter Your Skills:</p>
+        <p>Example: Communication, Leadership</p>
+        <label for="skill1">Skill 1:</label><br>
+        <input type="text" class="entry" name="skill1" size="50"><br>
+        <label for="skill2">Skill 2:</label><br>
+        <input type="text" class="entry" name="skill2" size="50"><br>
+        <label for="skill3">Skill 3:</label><br>
+        <input type="text" class="entry" name="skill3" size="50">
+        <hr>
+
+
+        <!-- Work history, I only put two because not everyone has worked a large amount of jobs -->
+        <div class="work_history">
+            <h2>Work History</h2>
+            <div class="work_one">
+                <label for="work1">Work Place:</label><br>
+                <input type="text" class="entry" name="work1" size="50"><br>
+            
+                <label for="job1">Job Title:</label><br>
+                <input type="text" class="entry" name="job1" size="50"><br>
+            
+                <label for="desc1">Job Description:</label><br>
+                <input type="text" class="entry" name="desc1" size="50"><br>
+            
+                <label for="dateStart1">Start Date:</label>
+                <input type="date" name="dateStart1" id="dateStart1">
+                <label for="dateEnd1" style="padding-left:10px">End Date:</label>
+                <input type="date" name="dateEnd1" id="dateEnd1">
+                <br><br>
+            </div>
+            
+            <div class="work_two">
+                <label for="work2">Work Place:</label><br>
+                <input type="text" class="entry" name="work2" size="50"><br>
+            
+                <label for="job2">Job Title:</label><br>
+                <input type="text" class="entry" name="job2" size="50"><br>
+            
+                <label for="desc2">Job Description:</label><br>
+                <input type="text" class="entry" name="desc2" size="50"><br>
+            
+                <label for="dateStart2">Start Date:</label>
+                <input type="date" name="dateStart2" id="dateStart2">
+                <label for="dateEnd2" style="padding-left:10px">End Date:</label>
+                <input type="date" name="dateEnd2" id="dateEnd2">
+                <br><br>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Business and personal references -->
+        <h2>References</h2>
+        <div class="ref1">
+            <label for="ref1">Reference:</label><br>
+            <input type="text" class="entry" name="ref1" size="50"><br>
+        
+            <label for="phone1">Telephone Number:</label><br>
+            <input type="text" class="entry" name="phone1" size="50"><br>
+        </div>
+        
+        <div class="ref2">
+            <label for="ref2">Reference:</label><br>
+            <input type="text" class="entry" name="ref2" size="50"><br>
+        
+            <label for="phone2">Telephone Number:</label><br>
+            <input type="text" class="entry" name="phone2" size="50"><br>
+        </div>
+
+        <!-- Submission button!! -->
+        <div id="btn-container">
+            <input type="submit" name="submitResume" class="button" value="Create Resume">
+        </div>
+
+    </form>
+    <script src="projectJS.js"></script>
+</body>
+</html>
